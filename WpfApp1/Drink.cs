@@ -4,8 +4,8 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
 {
     internal class Drink : Product
     {
-        protected String name;
-        protected float volume;
+        protected String name { get; set; }
+        protected float volume { get; set; }
 
         Drink (float volume, String name, float price) {
             this.name = name;
