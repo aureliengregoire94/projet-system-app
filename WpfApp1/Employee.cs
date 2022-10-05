@@ -4,13 +4,13 @@ namespace WpfApp1{
     public class Employee{
         public int EmployeeID { get; set; }
         public string Name { get; set; }
-        public string Type { get; set; }
+        public string type { get; set; }
 
-        public Employee(int employeeID, string name, string type){
-        EmployeeID = employeeID;
-        Name = name;
-        Type = type;
-        }
+        /*public Employee (int EmployeeID, string Name, string type) {
+            this.EmployeeID = EmployeeID;
+            this.Name = Name;
+            this.type = type;
+        }*/
         
     }
 }

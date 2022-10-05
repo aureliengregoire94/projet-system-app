@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp1
 {
-    internal class Client
+    public class Client
     {
         public int Client_phone;
         public int order_number;

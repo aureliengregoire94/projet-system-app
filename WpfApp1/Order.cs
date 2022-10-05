@@ -1,8 +1,9 @@
 using System;
+using System.Collections.Generic;
 
 namespace WpfApp1 // Note: actual namespace depends on the project name.
 {
-    internal class Order
+    public class Order
     {
         protected int orderId { get; set; }
         protected int clientId { get; set; }
@@ -10,19 +11,9 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
         protected string clientName { get; set; }
         protected string assistantName { get; set; }
         protected string orderState { get; set; }
-        protected List<Product> ListProducts { get => listProducts; set => listProducts = value; }
+        protected List<Product> listProducts = new List<Product>();
 
-        Order (int orderId, DateTime hour, string clientName, int clientId, string assistantName, string orderState, List<Product> ListProducts) {
-            this.orderId = orderId;
-            this.hour = hour;
-            this.clientName = clientName;
-            this.assistantName = assistantName;
-            this.orderState = orderState;
-            this.ListProducts = ListProducts;
-            this.clientId = clientId;
-        }
-
-        Order (int orderId, DateTime hour, string clientName, int clientId, string assistantName, string orderState) {
+        public Order (int orderId, DateTime hour, string clientName, int clientId, string assistantName, string orderState) {
             this.orderId = orderId;
             this.hour = hour;
             this.clientName = clientName;
@@ -36,7 +27,7 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
         }
 
         List<Pizza> kitchenConfirmation () {
-            return new List<Pizza>();
+            return default;
         }
 
         Address deliveryConfirmation (int idClient) {

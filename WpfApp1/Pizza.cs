@@ -2,14 +2,14 @@ using System;
 
 namespace WpfApp1 // Note: actual namespace depends on the project name.
 {
-    internal class Pizza : Product
+    public class Pizza : Product
     {
         protected String type { get; set; }
         protected String size { get; set; }
 
-        Drink (String type, String name, String size) {
-            this.name = name;
+        public Pizza (String type, float price, String size) {
             this.type = type;
+            this.price = price;
             this.size = size;
         }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp1
 {
-    internal class Address
+    public class Address
     {
         public int number;
         public string streetname; 
