@@ -12,10 +12,10 @@ namespace WpfApp1
         public int order_number;
         public string first_name;
         public string last_name;
-        public string address;
+        public Address address;
         public int completed_orders;
 
-        public Client(int client_phone, int order_number, string first_name, string last_name, string address)
+        public Client(int client_phone, int order_number, string first_name, string last_name, Address address)
         {
             Client_phone = client_phone;
             this.order_number = order_number;
