@@ -15,9 +15,10 @@ namespace WpfApp1{
             Console.Write(order.ToString());
         }
 
-        public void endOrder(int orderId, string deliveryId){
+        public void endOrder(int orderId, int deliveryManId){
+            resto.getOrderByID(orderId).orderState = OrderState.finished;
             // Restaurant.listOrders.Find(i => i.orderId == orderId).orderState = finished; BUG
-            //Restaurant.listEmployees.Find(j=>j.EmployeeID).print("");
+            resto.getEmployeesByID(deliveryManId).GetType(); // specification design pattern
         }
 
     }
