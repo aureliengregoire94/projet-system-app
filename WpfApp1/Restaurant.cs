@@ -65,5 +65,12 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
             }
             return default;
         }
+
+        public List<Client> sortingClientByNameAsc ()
+        {
+            List<Client> listClientsSorted = listClients;
+            listClientsSorted.Sort((x, y) => string.Compare(x.last_name, y.last_name));
+            return listClientsSorted;
+        }
     }
 }
