@@ -24,5 +24,26 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+
+        private void validation_Click(object sender, RoutedEventArgs e)
+        {
+            if(Cli.IsChecked == true)
+            {
+                MessageBox.Show("Enter the order ID");
+            }
+            else if(Own.IsChecked == true)
+            {
+                MessageBox.Show("Enter the owner code");
+            }
+            else if(Emp.IsChecked == true)
+            {
+                MessageBox.Show("Enter the employee Code");
+            }
+            else if(Deliv.IsChecked == true)
+            {
+                MessageBox.Show("Enter the Delivery Code");
+            }
+
+        }
     }
 }

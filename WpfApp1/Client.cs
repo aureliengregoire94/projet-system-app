@@ -17,7 +17,7 @@ namespace WpfApp1
 
         public Client(int client_phone, int order_number, string first_name, string last_name, Address address)
         {
-            Client_phone = client_phone;
+            this.Client_phone = client_phone;
             this.order_number = order_number;
             this.first_name = first_name;
             this.last_name = last_name;

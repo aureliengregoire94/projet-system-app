@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <TextBlock Margin="200,48,214,359"><Run Language="fr-fr" Text="                           "/><Run Text="Please select your status"/></TextBlock>
+        <RadioButton Name ="Cli" Margin="200,97,371,320">Client</RadioButton>
+        <RadioButton Name="Deliv" Margin="200,119,396,294">Delivery Man</RadioButton>
+        <RadioButton Name ="Own" Margin="200,140,344,279">Shop Owner</RadioButton>
+        <RadioButton Name ="Emp" Margin="200,160,453,259">Employee</RadioButton>
+        <Button Name="validation" Margin="302,217,328,194" Click="validation_Click" Width="170" Height="20">Click to validate</Button>
     </Grid>
 </Window>

@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\WpfApp1"
   ],
-  "SelectedNode": "\\C:\\Users\\aurel\\OneDrive\\Documents\\systappM1\\projet",
-  "PreviewInSolutionExplorer": false
+  "SelectedNode": "\\WpfApp1\\MainWindow.xaml",
+  "PreviewInSolutionExplorer": true
 }
