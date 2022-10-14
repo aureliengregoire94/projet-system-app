@@ -6,7 +6,12 @@ namespace WpfApp1{
         //
         public void sendConfirmation(Order order){
             order.orderState = OrderState.finished;
-            // increase client's honored order by 1
+            resto.getClientByID(order.clientId).completed_orders += 1;
+        }
+
+        public void print (string message)
+        {
+            // printing message argument in the GUI
         }
         
     }
