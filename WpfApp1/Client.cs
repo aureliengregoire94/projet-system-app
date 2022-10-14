@@ -27,7 +27,5 @@ namespace WpfApp1
             this.completed_orders = 0;
         }
 
-
-
     }
 }
