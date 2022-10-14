@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Windows.Input;
 
 namespace WpfApp1 // Note: actual namespace depends on the project name.
 {
@@ -72,5 +73,40 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
             listClientsSorted.Sort((x, y) => string.Compare(x.last_name, y.last_name));
             return listClientsSorted;
         }
+
+        public List<Client> sortingClientByCity ()
+        {
+            List<Client> listClientsSorted = listClients;
+            listClientsSorted.Sort((x, y) => string.Compare(x.address.city, y.address.city));
+            return listClientsSorted;
+        } 
+
+        /*public Dictionary<int, Client> sortingClientByOrders ()
+        {
+            var clientsXsumSpent = new Dictionary<int, Client>()
+            foreach (Client c in listClients)
+            {
+                List<Order> orderOfClients = new List<Order>();
+                foreach (Order o in listOrders)
+                {
+                    if (o.clientId == c.clientId)
+                    {
+                        orderOfClients.Add(o);
+                    }
+                }
+                
+                foreach (Order o in orderOfClients)
+                {
+                    int sumOrders = 0;
+                    foreach (Product p in listProducts)
+                    {
+                        sumOrders += p.price;
+                    }
+                    clientsXsumSpent.Add(sumOrders,c.clientId);
+                }   
+            }
+            var clientsXsumSpent = clientsXsumSpent.OrderBy(user => user.Value);
+            return clientsXsumSpent;*/
+        } 
     }
 }
