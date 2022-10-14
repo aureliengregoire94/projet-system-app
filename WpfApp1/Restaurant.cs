@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace WpfApp1 // Note: actual namespace depends on the project name.
 {
@@ -12,6 +13,57 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
 
         public Restaurant () {
 
+        }
+
+        public List<Client> getListClients () {
+            return this.listClients;
+        }
+
+        public List<Employee> getListEmployees() {
+            return this.listEmployees;
+        }
+
+        public List<Product> getListAllProducts() {
+            return this.listAllProducts;
+        }
+
+        public List<Order> getListOrders() {
+            return this.listOrders;
+        }
+
+        public Employee getEmployeesByID (int id) {
+            foreach (Employee e in listEmployees)
+            {
+                if (e.EmployeeID == id)
+                {
+                    return e;
+                }
+            }
+            return default;
+        }
+
+        public Order getOrderByID (int id)
+        {
+            foreach (Order o in listOrders)
+            {
+                if (o.orderId == id)
+                {
+                    return o;
+                }
+            }
+            return default;
+        }
+
+        public Client getClientByID(int id)
+        {
+            foreach (Client c in listClients)
+            {
+                if (c.clientId == id)
+                {
+                    return c;
+                }
+            }
+            return default;
         }
     }
 }
