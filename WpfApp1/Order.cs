@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Windows.Input;
 
 namespace WpfApp1 // Note: actual namespace depends on the project name.
 {
@@ -14,7 +15,7 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
         protected List<Product> listProducts = new List<Product>();
         public int deliveryId { get; set; }
 
-        public Order (int deliveryId, int orderId, DateTime hour, string clientName, int clientId, int assistantId , OrderState orderState) {
+        public Order (int orderId, DateTime hour, string clientName, int clientId, int assistantId , OrderState orderState, int deliveryId) {
             this.orderId = orderId;
             this.hour = hour;
             this.clientName = clientName;
@@ -22,24 +23,7 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
             this.orderState = orderState;
             this.clientId = clientId;
             this.deliveryId = deliveryId;
+            
         }
-
-        Boolean clientConfirmation () {
-            return true;
-        }
-
-        List<Pizza> kitchenConfirmation () {
-            return default;
-        }
-
-        Address deliveryConfirmation (int idClient) {
-            return default;
-        }
-
-        Order assistantConfirmation () {
-            return this;
-        }
-
-
     }
 }

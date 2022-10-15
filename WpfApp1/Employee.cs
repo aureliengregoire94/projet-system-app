@@ -18,6 +18,11 @@ namespace WpfApp1{
         public Employee () {
             
         }
+
+        public void print (string message)
+        {
+            // printing message argument in the GUI
+        }
         
     }
 }

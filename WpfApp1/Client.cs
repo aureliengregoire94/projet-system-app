@@ -27,5 +27,15 @@ namespace WpfApp1
             this.completed_orders = 0;
         }
 
+        public void print (string message)
+        {
+            // printing message argument in the GUI
+        }
+
+        public string printAddress ()
+        {
+            return first_name + " " + last_name + "\n " +address.number + " " +address.streetname+ ", " +address.city;
+        }
+
     }
 }
