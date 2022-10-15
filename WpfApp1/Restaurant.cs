@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Windows.Input;
+using System.IO;
+using System.Text;
 
 namespace WpfApp1 // Note: actual namespace depends on the project name.
 {
@@ -76,7 +78,7 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
                     return c;
                 }
             }
-            return default;
+            return new Client ();
         }
 
         public List<Client> sortingClientByNameAsc ()
@@ -120,5 +122,11 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
             var clientsXsumSpent = clientsXsumSpent.OrderBy(user => user.Value);
             return clientsXsumSpent;
         } */
+
+        public void addOrderWithFile (string path)
+        {
+            string fileContent = File.ReadAllText(path, Encoding.UTF8);
+            
+        }
     }
 }

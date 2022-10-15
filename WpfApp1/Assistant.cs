@@ -1,38 +1,44 @@
 using System;
-using WpfApp1;
-/*
-namespace WpfApp1{
+
+namespace WpfApp1
+{
     public class Assistant : Employee{
-         public Assistant ()
-        {
+         public Assistant (string Name, string type, Restaurant resto)
+         {
+            this.resto = resto;
+            this.EmployeeID = Globals.indexEmployee;
+            Globals.indexEmployee += 1;
+            this.Name = Name;
+            this.type = type;
+         }
 
-        }
-
-        public void createClient(int client_phone, int order_number, string first_name, string last_name, Address address)
+        public void createClient(int client_phone, int order_number, string first_name, string last_name, int number, string streetname, string city)
         {
-            resto.getListClients.Add(new Client (Globals.indexClient, client_phone, order_number, first_name, last_name, address));
-            Globals.indexClient +=1;
+            Address address = new Address(number, streetname, city);
+            resto.getListClients().Add(new Client (client_phone, order_number, first_name, last_name, address));
             
         }
 
         public void createEmployee (string Name, string type)
         {
-            resto.getListEmployees.Add(Globals.indexEmployee, Name, type, this.resto);
-            Globals.indexEmployee +=1;
+            resto.getListEmployees().Add( new Employee(Name, type, this.resto) );
         }
 
-        public Order takeOrder(string clientPhoneNumber){
+        public Order takeOrder(int clientPhoneNumber){
             Client c = resto.getClientByPhone(clientPhoneNumber);
 
             // creating the new order
-            Order order = new Order(Globals.indexOrder, DateTime.Now, c.last_name, this.EmployeeID, orderState.preparation, 0); // 0 : delivery, how to manage that
-            Globals.indexOrder +=1;
+            Order order = new Order(DateTime.Now, c.last_name, c.clientId, this.EmployeeID, OrderState.preparation, 0); // 0 : delivery, how to manage that
+            // TODO add the products
+            resto.getListOrders().Add(order);
 
             // sending all the confirmations
             clientConfirmation(c.clientId, "Order " +order.orderId+ " in "+ order.orderState);
             kitchenConfirmation("");
-            deliveryConfirmation(order.deliveryId, c.printAddress); // adding 5min delay // refer to commentary Order line
-            assistantConfirmation(this.EmployeeID, this.print("Order " +order.orderId+ " in preparation"));
+            //deliveryConfirmation(order.deliveryId, c.printAddress()); // adding 5min delay // refer to commentary Order line
+            assistantConfirmation(this.EmployeeID, "Order " +order.orderId+ " in preparation");
+
+            return order;
         }
 
         public void changeOrderState(Order order, OrderState orderState){
@@ -45,7 +51,7 @@ namespace WpfApp1{
 
         public void endOrder(int orderId, int deliveryManId){
             resto.getOrderByID(orderId).orderState = OrderState.finished;
-            resto.getEmployeesByID(deliveryManId).GetType(); // specification design pattern
+            //resto.getEmployeesByID(deliveryManId).GetType(); // specification design pattern
         }
 
         public void clientConfirmation (int clientId, string message) {
