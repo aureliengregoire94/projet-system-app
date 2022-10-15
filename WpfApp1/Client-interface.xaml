@@ -1,0 +1,20 @@
+﻿<Page x:Class="WpfApp1.Client_interface"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Client_interface">
+
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+        </Grid.Background>
+        <TextBlock Margin="321,88,321,339">Enter your order number</TextBlock>
+        <TextBox Margin="256,141,256,284" KeyDown="TextBox_Keydown" MaxWidth="170" MaxHeight="20"></TextBox>
+        <Button x:Name="Backreturn" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Return_Click">Return</Button>
+        <Frame x:Name="Clientframe"/>
+    </Grid>
+</Page>

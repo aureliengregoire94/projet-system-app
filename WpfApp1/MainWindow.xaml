@@ -13,5 +13,6 @@
         <RadioButton Name ="Own" Margin="200,140,344,279">Shop Owner</RadioButton>
         <RadioButton Name ="Emp" Margin="200,160,453,259">Employee</RadioButton>
         <Button Name="validation" Margin="302,217,328,194" Click="Validation_Click" Width="170" Height="20">Click to validate</Button>
+        <Frame x:Name="mainFrame"/>
     </Grid>
 </Window>

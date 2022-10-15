@@ -40,3 +40,9 @@ C:\Users\aurel\OneDrive\Documents\projet-system-app\WpfApp1\obj\Debug\net6.0-win
 C:\Users\aurel\OneDrive\Documents\projet-system-app\WpfApp1\obj\Debug\net6.0-windows\WpfApp1.pdb
 C:\Users\aurel\OneDrive\Documents\projet-system-app\WpfApp1\obj\Debug\net6.0-windows\WpfApp1.genruntimeconfig.cache
 C:\Users\aurel\OneDrive\Documents\projet-system-app\WpfApp1\obj\Debug\net6.0-windows\ref\WpfApp1.dll
+C:\Users\aurel\OneDrive\Documents\projet-system-app\WpfApp1\obj\Debug\net6.0-windows\Client-interface.g.cs
+C:\Users\aurel\OneDrive\Documents\projet-system-app\WpfApp1\obj\Debug\net6.0-windows\Client-interface.baml
+C:\Users\aurel\OneDrive\Documents\projet-system-app\WpfApp1\obj\Debug\net6.0-windows\Commis.g.cs
+C:\Users\aurel\OneDrive\Documents\projet-system-app\WpfApp1\obj\Debug\net6.0-windows\Deliveryman.g.cs
+C:\Users\aurel\OneDrive\Documents\projet-system-app\WpfApp1\obj\Debug\net6.0-windows\Commis.baml
+C:\Users\aurel\OneDrive\Documents\projet-system-app\WpfApp1\obj\Debug\net6.0-windows\Deliveryman.baml

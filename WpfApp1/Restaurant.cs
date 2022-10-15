@@ -71,7 +71,7 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
         {
             foreach (Client c in listClients)
             {
-                if (c.Client_phone == id)
+                if (c.Client_phone == tel)
                 {
                     return c;
                 }
@@ -91,7 +91,7 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
             List<Client> listClientsSorted = listClients;
             listClientsSorted.Sort((x, y) => string.Compare(x.address.city, y.address.city));
             return listClientsSorted;
-        } 
+        }
 
         /*public Dictionary<int, Client> sortingClientByOrders ()
         {
@@ -118,7 +118,7 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
                 }   
             }
             var clientsXsumSpent = clientsXsumSpent.OrderBy(user => user.Value);
-            return clientsXsumSpent;*/
-        } 
+            return clientsXsumSpent;
+        } */
     }
 }

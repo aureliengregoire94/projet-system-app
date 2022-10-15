@@ -35,29 +35,15 @@ namespace WpfApp1
             if (Cli.IsChecked == true)
             {
 
-
-                MessageBox.Show("Enter the order ID");
-
-                TextBox txt = new TextBox();
-                txt.Name = "new_input";
-                Thickness margin = txt.Margin;
-                margin.Left = 280;
-                margin.Top = 300;
-                margin.Bottom = 194;
-                txt.Width = 170;
-                txt.Height = 20;
-
-                txt.KeyDown += new KeyEventHandler(PressEnter);
-
-                interface1.Children.Add(txt);
-
+                MessageBox.Show("welcome");
+                mainFrame.NavigationService.Navigate(new Uri("Client-interface.xaml", UriKind.Relative));
             }
             else if (Own.IsChecked == true)
             {
                 MessageBox.Show("Enter the owner code");
 
                 TextBox txt = new TextBox();
-                txt.Name = "new_input";
+                txt.Name = "owner";
                 Thickness margin = txt.Margin;
                 margin.Left = 280;
                 margin.Top = 300;
@@ -75,7 +61,7 @@ namespace WpfApp1
                 MessageBox.Show("Enter the employee Code");
 
                 TextBox txt = new TextBox();
-                txt.Name = "new_input";
+                txt.Name = "employee";
                 Thickness margin = txt.Margin;
                 margin.Left = 280;
                 margin.Top = 300;
@@ -89,10 +75,10 @@ namespace WpfApp1
             }
             else if (Deliv.IsChecked == true)
             {
-                MessageBox.Show("Enter the Delivery Code");
+                MessageBox.Show("Enter your id");
 
                 TextBox txt = new TextBox();
-                txt.Name = "new_input";
+                txt.Name = "delivery";
                 Thickness margin = txt.Margin;
                 margin.Left = 280;
                 margin.Top = 300;
@@ -112,6 +98,24 @@ namespace WpfApp1
             {
                 TextBox txt = (TextBox)sender;
                 MessageBox.Show(txt.Text);
+
+                if(txt.Name == "delivery")
+                {
+                    if(int.Parse(txt.Text) == 1234)
+                    {
+                        interface1.Children.Remove(txt);
+                        mainFrame.NavigationService.Navigate(new Uri("DeliveryMan.xaml", UriKind.Relative));
+                    }
+                        
+                }
+                if(txt.Name == "employee")
+                {
+                    if(int.Parse(txt.Text) == 0000)
+                    {
+                        interface1.Children.Remove(txt);
+                        mainFrame.NavigationService.Navigate(new Uri("Employee.xaml", UriKind.Relative));
+                    }
+                }
             }
         }
     }

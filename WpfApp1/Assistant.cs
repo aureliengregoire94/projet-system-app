@@ -1,6 +1,6 @@
 using System;
 using WpfApp1;
-
+/*
 namespace WpfApp1{
     public class Assistant : Employee{
          public Assistant ()
@@ -66,3 +66,5 @@ namespace WpfApp1{
 
     }
 }
+
+*/
