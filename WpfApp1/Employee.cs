@@ -1,6 +1,7 @@
 using System;
 
-namespace WpfApp1{
+namespace WpfApp1
+{
     public class Employee{
         public int EmployeeID { get; set; }
         public string Name { get; set; }
@@ -8,9 +9,10 @@ namespace WpfApp1{
 
         public Restaurant resto { get; set; }
 
-        public Employee (int EmployeeID, string Name, string type, Restaurant resto) {
+        public Employee (string Name, string type, Restaurant resto) {
             this.resto = resto;
-            this.EmployeeID = EmployeeID;
+            this.EmployeeID = Globals.indexEmployee;
+            Globals.indexEmployee += 1;
             this.Name = Name;
             this.type = type;
         }

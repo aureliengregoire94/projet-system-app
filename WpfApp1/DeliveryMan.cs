@@ -1,6 +1,7 @@
 using System;
 
-namespace WpfApp1{
+namespace WpfApp1
+{
     public class DeliveryMan : Employee {
 
         //
@@ -8,6 +9,14 @@ namespace WpfApp1{
             order.orderState = OrderState.finished;
             resto.getClientByID(order.clientId).completed_orders += 1;
         }
-        
+
+        public DeliveryMan(string Name, string type, Restaurant resto)
+        {
+            this.resto = resto;
+            this.EmployeeID = Globals.indexEmployee;
+            Globals.indexEmployee += 1;
+            this.Name = Name;
+            this.type = type;
+        }
     }
 }

@@ -15,8 +15,9 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
         protected List<Product> listProducts = new List<Product>();
         public int deliveryId { get; set; }
 
-        public Order (int orderId, DateTime hour, string clientName, int clientId, int assistantId , OrderState orderState, int deliveryId) {
-            this.orderId = orderId;
+        public Order (DateTime hour, string clientName, int clientId, int assistantId , OrderState orderState, int deliveryId) {
+            this.orderId = Globals.indexOrder;
+            Globals.indexOrder += 1;
             this.hour = hour;
             this.clientName = clientName;
             this.assistantId = assistantId;
