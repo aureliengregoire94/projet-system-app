@@ -12,7 +12,7 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
         protected string clientName { get; set; }
         protected int assistantId  { get; set; }
         public OrderState orderState { get; set; } // check #OrderState to see the differents states
-        protected List<Product> listProducts = new List<Product>();
+        public List<Product> listProducts = new List<Product>();
         public int deliveryId { get; set; }
 
         public Order (DateTime hour, string clientName, int clientId, int assistantId , OrderState orderState, int deliveryId) {
