@@ -196,9 +196,9 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
             return listClientsSorted;
         } 
 
-        /*public Dictionary<int, Client> sortingClientByOrders ()
+        /*public Dictionary<int, float> sortingClientByOrders ()
         {
-            var clientsXsumSpent = new Dictionary<int, Client>()
+            var clientsXsumSpent = new Dictionary<int, float>();
             foreach (Client c in listClients)
             {
                 List<Order> orderOfClients = new List<Order>();
@@ -209,20 +209,20 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
                         orderOfClients.Add(o);
                     }
                 }
-                
+
+                float sumOrders = 0;
                 foreach (Order o in orderOfClients)
                 {
-                    int sumOrders = 0;
-                    foreach (Product p in listProducts)
+                    foreach (Product p in o.listProducts)
                     {
                         sumOrders += p.price;
                     }
-                    clientsXsumSpent.Add(sumOrders,c.clientId);
+                    Console.WriteLine("\n id " + c.clientId + "," + sumOrders);
+                    clientsXsumSpent.Add(c.clientId, sumOrders);
                 }   
             }
-            var clientsXsumSpent = clientsXsumSpent.OrderBy(user => user.Value);
-            return clientsXsumSpent;
-        } */
+            return (Dictionary<int, float>) clientsXsumSpent.OrderBy(key => key.Value);
+        }*/
 
         public void addOrderWithFile (string path)
         {

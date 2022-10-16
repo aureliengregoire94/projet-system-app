@@ -16,12 +16,11 @@ namespace WpfApp1
         public int completed_orders;
         public int clientId;
 
-        public Client(int client_phone, int order_number, string first_name, string last_name, Address address)
+        public Client(int client_phone, string first_name, string last_name, Address address)
         {
             this.clientId = Globals.indexClient;
             Globals.indexClient += 1;
             this.Client_phone = client_phone;
-            this.order_number = order_number;
             this.first_name = first_name;
             this.last_name = last_name;
             this.address = address;
@@ -38,9 +37,9 @@ namespace WpfApp1
             // printing message argument in the GUI
         }
 
-        public string printAddress ()
+        public string printClientInfos ()
         {
-            return first_name + " " + last_name + "\n " +address.number + " " +address.streetname+ ", " +address.city;
+            return "\n"+first_name + " " + last_name + "\n" +address.number + " " +address.streetname+ ", " +address.city;
         }
 
     }
