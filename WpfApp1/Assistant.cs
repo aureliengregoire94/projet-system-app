@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 
 namespace WpfApp1
 {
@@ -36,21 +37,40 @@ namespace WpfApp1
             resto.getListEmployees().Add( new Employee(Name, type, this.resto) );
         }
 
-        public Order takeOrder(int clientPhoneNumber){
+        public Order takeOrder(int clientPhoneNumber)
+        {
             Client c = resto.getClientByPhone(clientPhoneNumber);
 
+            // picking a random delivery man
+            Employee deliveryMan = new Employee();
+            var random = new Random();
+            Boolean found = false;
+            while (!found)
+            {
+                Employee temp = resto.getListEmployees().ElementAt(random.Next(resto.listEmployees.Count));
+                if (temp.type == EmployeeType.delivery)
+                {
+                    found = true;
+                    deliveryMan = resto.getListEmployees().ElementAt(random.Next(resto.listEmployees.Count));
+                }
+            }
+
             // creating the new order
-            Order order = new Order(DateTime.Now, c.last_name, c.clientId, this.EmployeeID, OrderState.preparation, 0); // 0 : delivery, how to manage that
+            Order order = new Order(DateTime.Now, c.last_name, c.clientId, this.EmployeeID, OrderState.preparation, deliveryMan.EmployeeID); // 0 : delivery, how to manage that
             // TODO add the products
             resto.getListOrders().Add(order);
 
+            return order;
+        }
+
+        public void completingOrder(Order order)
+        {
             // sending all the confirmations
-            clientConfirmation(c.clientId, "Order " +order.orderId+ " in "+ order.orderState);
+            Console.Write("\n client " + order.clientId + " order " + order.orderId + " in " + order.orderState);
+            //clientConfirmation(c.clientId, "Order " + order.orderId + " in " + order.orderState);
             kitchenConfirmation(order.listProducts);
             //deliveryConfirmation(order); // adding 5min delay // refer to commentary Order line
-            assistantConfirmation(this.EmployeeID, "Order " +order.orderId+ " in preparation");
-
-            return order;
+            //assistantConfirmation(this.EmployeeID, "Order " + order.orderId + " in preparation");
         }
 
         public void changeOrderState(Order order, OrderState orderState){

@@ -172,14 +172,7 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
 
         public Client getClientByPhone(int tel)
         {
-            foreach (Client c in listClients)
-            {
-                if (c.Client_phone == tel)
-                {
-                    return c;
-                }
-            }
-            return new Client ();
+            return listClients.Find(r => r.Client_phone == tel);
         }
 
         public List<Client> sortingClientByNameAsc ()

@@ -11,5 +11,12 @@
     <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
         <TextBlock Width="170" Height="24" HorizontalAlignment="Center" MaxWidth="170" MaxHeight="24" Margin="0,0,0,100">Enter the client phone number</TextBlock>
         <TextBox x:Name="Phone" Width="170" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="170" MaxHeight="33" KeyDown="Phone_KeyDown"></TextBox>
+
+        <TextBlock Width="170" Height="24" HorizontalAlignment="Center" MaxWidth="170" MaxHeight="24" Margin="0,199,0,100">Enter the order ID</TextBlock>
+        <TextBox x:Name="ID" Width="170" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="170" MaxHeight="33" KeyDown="ID_KeyDown" Margin="0,200,0,0"></TextBox>
+
+        <Frame x:Name="com_frame"/>
+        <Button x:Name="overview" Width="120" Height="27" HorizontalAlignment="Left" Click="overview_Click">Consult overview</Button>
+        <Button x:Name="Backreturn" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Return_Click">Return</Button>
     </Grid>
 </Page>

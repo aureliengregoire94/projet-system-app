@@ -31,6 +31,8 @@ namespace WpfApp1
 
             Assistant commissaire = new Assistant("Larbin", EmployeeType.assistant, lapizza_delamama);
 
+            commissaire.createEmployee("esclave", EmployeeType.delivery);
+
             Application.Current.Properties["Restau"] = lapizza_delamama;
             Application.Current.Properties["Commis"] = commissaire;
             InitializeComponent();
@@ -120,7 +122,7 @@ namespace WpfApp1
                     if(int.Parse(txt.Text) == 0000)
                     {
                         interface1.Children.Remove(txt);
-                        mainFrame.NavigationService.Navigate(new Uri("Employee.xaml", UriKind.Relative));
+                        mainFrame.NavigationService.Navigate(new Uri("Commis.xaml", UriKind.Relative));
                     }
                 }
             }

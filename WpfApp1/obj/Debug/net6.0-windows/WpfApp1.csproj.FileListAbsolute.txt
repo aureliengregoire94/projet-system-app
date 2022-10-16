@@ -48,3 +48,7 @@ C:\Users\aurel\OneDrive\Documents\projet-system-app\WpfApp1\obj\Debug\net6.0-win
 C:\Users\aurel\OneDrive\Documents\projet-system-app\WpfApp1\obj\Debug\net6.0-windows\Deliveryman.baml
 C:\Users\aurel\OneDrive\Documents\projet-system-app\WpfApp1\obj\Debug\net6.0-windows\employee.g.cs
 C:\Users\aurel\OneDrive\Documents\projet-system-app\WpfApp1\obj\Debug\net6.0-windows\employee.baml
+C:\Users\aurel\OneDrive\Documents\projet-system-app\WpfApp1\obj\Debug\net6.0-windows\create_order.g.cs
+C:\Users\aurel\OneDrive\Documents\projet-system-app\WpfApp1\obj\Debug\net6.0-windows\create_order.baml
+C:\Users\aurel\OneDrive\Documents\projet-system-app\WpfApp1\obj\Debug\net6.0-windows\visualisation.g.cs
+C:\Users\aurel\OneDrive\Documents\projet-system-app\WpfApp1\obj\Debug\net6.0-windows\visualisation.baml
