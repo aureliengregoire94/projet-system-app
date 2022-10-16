@@ -20,14 +20,29 @@ namespace WpfApp1
     /// </summary>
     public partial class Deliveryman : Page
     {
+        Restaurant restau = (Restaurant)Application.Current.Properties["Restau"];
+        Assistant commis = (Assistant)Application.Current.Properties["Commis"];       
         public Deliveryman()
-        {
+        {            
             InitializeComponent();
         }
 
         private void Return_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(null);
+        }
+
+        private void validation_Click(object sender, RoutedEventArgs e)
+        {
+            if(txtb.Text != null)
+            {
+                
+            }
+        }
+
+        private void cancellation_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

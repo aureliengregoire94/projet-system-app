@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace WpfApp1
 {
@@ -12,10 +13,10 @@ namespace WpfApp1
             this.type = type;
          }
 
-        public void createClient(int client_phone, int order_number, string first_name, string last_name, int number, string streetname, string city)
+        public void createClient(int client_phone, string first_name, string last_name, int number, string streetname, string city)
         {
             Address address = new Address(number, streetname, city);
-            resto.getListClients().Add(new Client (client_phone, order_number, first_name, last_name, address));
+            resto.getListClients().Add(new Client (client_phone, 0, first_name, last_name, address));
             
         }
 

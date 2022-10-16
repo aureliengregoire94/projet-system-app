@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,6 +27,12 @@ namespace WpfApp1
 
         public MainWindow()
         {
+            Restaurant lapizza_delamama = new Restaurant();
+
+            Assistant commissaire = new Assistant("Larbin", EmployeeType.assistant, lapizza_delamama);
+
+            Application.Current.Properties["Restau"] = lapizza_delamama;
+            Application.Current.Properties["Commis"] = commissaire;
             InitializeComponent();
         }
         

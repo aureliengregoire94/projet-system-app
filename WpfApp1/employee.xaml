@@ -8,7 +8,26 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="employee">
 
-    <Grid>
-        
+    <Grid Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Margin="0,0,-114,-49">
+        <TextBox x:Name="Phone" Width="100" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" MaxWidth="120" MaxHeight="30" Margin="130,0,0,0"></TextBox>
+        <TextBlock Margin="130,23,0,-4" MinWidth="111" MaxWidth="111" MinHeight="24" MaxHeight="27" Width="111" Height="27" HorizontalAlignment="Left" VerticalAlignment="Top"> Enter Client phone</TextBlock>
+
+        <TextBox x:Name="fst_name" Width="100" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" MaxWidth="120" MaxHeight="30" Margin="240,0,0,0"></TextBox>
+        <TextBlock Margin="240,24,0,0" MinWidth="111" MaxWidth="111" MinHeight="24" MaxHeight="27" Width="111" Height="27" HorizontalAlignment="Left" VerticalAlignment="Top"> Enter 1st name</TextBlock>
+
+        <TextBox x:Name="lst_name" Width="100" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" MaxWidth="120" MaxHeight="30" Margin="340,0,0,0"></TextBox>
+        <TextBlock Margin="340,23,0,-4" MinWidth="111" MaxWidth="111" MinHeight="24" MaxHeight="27" Width="111" Height="27" HorizontalAlignment="Left" VerticalAlignment="Top"> Enter last name</TextBlock>
+
+        <TextBox x:Name="city" Width="100" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" MaxWidth="120" MaxHeight="30" Margin="440,0,0,0"></TextBox>
+        <TextBlock Margin="440,23,0,-4" MinWidth="111" MaxWidth="111" MinHeight="24" MaxHeight="27" Width="111" Height="27" HorizontalAlignment="Left" VerticalAlignment="Top"> City</TextBlock>
+
+        <TextBox x:Name="Street_name"  Width="100" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" MaxWidth="120" MaxHeight="30" Margin="540,0,0,0"></TextBox>
+        <TextBlock Margin="540,23,0,-4" MinWidth="111" MaxWidth="111" MinHeight="24" MaxHeight="27" Width="111" Height="27" HorizontalAlignment="Left" VerticalAlignment="Top"> Street Name</TextBlock>
+
+        <TextBox x:Name="h_num" Width="100" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" MaxWidth="120" MaxHeight="30" Margin="640,0,0,0"></TextBox>
+        <TextBlock Margin="640,23,0,-4" MinWidth="111" MaxWidth="111" MinHeight="24" MaxHeight="27" Width="111" Height="27" HorizontalAlignment="Left" VerticalAlignment="Top"> House number</TextBlock>
+
+        <Button HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="1.533,0.805" Margin="0,65,0,20" Click="addclient_Click">Create client</Button>
+        <Button x:Name="Backreturn" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Return_Click">Return</Button>
     </Grid>
 </Page>

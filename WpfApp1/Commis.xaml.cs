@@ -20,9 +20,22 @@ namespace WpfApp1
     /// </summary>
     public partial class Commis : Page
     {
+        Restaurant restau = (Restaurant)Application.Current.Properties["Restau"];
+        Assistant commis = (Assistant)Application.Current.Properties["Commis"];
         public Commis()
         {
             InitializeComponent();
+        }
+
+        private void Phone_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                if(Phone.Text != null)
+                {
+                    
+                }
+            }
         }
     }
 }
