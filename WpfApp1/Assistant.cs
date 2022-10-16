@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace WpfApp1
 {
@@ -13,10 +14,10 @@ namespace WpfApp1
             this.type = type;
          }
 
-        public void createClient(int client_phone, string first_name, string last_name, int number, string streetname, string city)
+        public void createClient(int client_phone, int order_number, string first_name, string last_name, int number, string streetname, string city)
         {
             Address address = new Address(number, streetname, city);
-            resto.getListClients().Add(new Client (client_phone, 0, first_name, last_name, address));
+            resto.getListClients().Add(new Client (client_phone, order_number, first_name, last_name, address));
             
         }
 
@@ -91,6 +92,14 @@ namespace WpfApp1
 
         public void assistantConfirmation (int employeeId, string message) {
             resto.getEmployeesByID(employeeId).print(message);
+        }
+        public void addPizzaToOrder (PizzaType type, PizzaGarnishment garni, PizzaSize size, Order order)
+        {
+            order.listProducts.Add(resto.AddPizza(type, garni, size));
+        }
+        public void addDrinkToOrder(DrinkType type, Order order)
+        {
+            order.listProducts.Add(resto.AddDrink(type));
         }
 
     }
