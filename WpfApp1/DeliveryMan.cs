@@ -10,13 +10,17 @@ namespace WpfApp1
             resto.getClientByID(order.clientId).completed_orders += 1;
         }
 
-        public DeliveryMan(string Name, string type, Restaurant resto)
+        public DeliveryMan(string Name, EmployeeType type, Restaurant resto)
         {
             this.resto = resto;
             this.EmployeeID = Globals.indexEmployee;
             Globals.indexEmployee += 1;
             this.Name = Name;
             this.type = type;
+        }
+        public void deliver (int a)
+        {
+            print("livraison"+a);
         }
     }
 }

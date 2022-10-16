@@ -5,11 +5,11 @@ namespace WpfApp1
     public class Employee{
         public int EmployeeID { get; set; }
         public string Name { get; set; }
-        public string type { get; set; }
+        public EmployeeType type { get; set; }
 
         public Restaurant resto { get; set; }
 
-        public Employee (string Name, string type, Restaurant resto) {
+        public Employee (string Name, EmployeeType type, Restaurant resto) {
             this.resto = resto;
             this.EmployeeID = Globals.indexEmployee;
             Globals.indexEmployee += 1;
