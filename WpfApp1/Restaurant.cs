@@ -4,6 +4,9 @@ using System.Reflection;
 using System.Windows.Input;
 using System.IO;
 using System.Text;
+using System.Linq.Expressions;
+using System.Diagnostics;
+using System.Drawing;
 
 namespace WpfApp1 // Note: actual namespace depends on the project name.
 {
@@ -15,7 +18,105 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
         public List<Order> listOrders = new List<Order>();
 
         public Restaurant () {
-
+            
+        }
+        public Pizza AddPizza (PizzaType type, PizzaGarnishment garni, PizzaSize size)
+        {
+            float price = 0;
+            string name = "";
+            // defining the base pizza price
+            switch (type)
+            {
+                case PizzaType.margarita:
+                    price = 10;
+                    name = "margarita";
+                    break;
+                case PizzaType.napolitana:
+                    price = 12;
+                    name = "napolitana";
+                    break;
+                case PizzaType.regina:
+                    price = 14;
+                    name = "regina";
+                    break;
+                default:
+                    price = 1;
+                    break;
+            }
+            // putting a ratio related to the size
+            switch (size)
+            {
+                case PizzaSize.small:
+                    price *=1;
+                    name += " small ";
+                    break;
+                case PizzaSize.medium:
+                    price *=(float)1.2;
+                    name += " medium ";
+                    break;
+                case PizzaSize.big:
+                    price *=(float)1.5;
+                    name += " big ";
+                    break;
+                default:
+                    price *= 1;
+                    break;
+            }
+            // putting a bonus related to the garnishment
+            switch (garni)
+            {
+                case PizzaGarnishment.tomatoSauce:
+                    price *= 1;
+                    name += " tomato sauce ";
+                    break;
+                case PizzaGarnishment.cheese:
+                    price += 2;
+                    name += " cheese ";
+                    break;
+                case PizzaGarnishment.vege:
+                    price += 2;
+                    name += " vege ";
+                    break;
+                case PizzaGarnishment.allGarnish:
+                    price += 3;
+                    name += " allGarnish ";
+                    break;
+                default:
+                    price *= 1;
+                    break;
+            }
+            return (new Pizza(price, size, garni, name) );
+        }
+        public Drink AddDrink(DrinkType type)
+        {
+            // putting a bonus related to the garnishment
+            float price;
+            float volume;
+            string name;
+            switch (type)
+            {
+                case DrinkType.coca:
+                    price = 2;
+                    volume = (float)0.33;
+                    name = "coca " + volume + "L";
+                    break;
+                case DrinkType.bear:
+                    price = 4;
+                    volume = (float)0.5;
+                    name = "bear " + volume + "L";
+                    break;
+                case DrinkType.water:
+                    price = 1;
+                    volume = (float)1;
+                    name = "water " + volume + "L";
+                    break;
+                default:
+                    price = 1;
+                    volume = 1;
+                    name = "";
+                    break;
+            }
+            return (new Drink(volume, price, name));
         }
 
         public List<Client> getListClients () {
@@ -93,7 +194,7 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
             List<Client> listClientsSorted = listClients;
             listClientsSorted.Sort((x, y) => string.Compare(x.address.city, y.address.city));
             return listClientsSorted;
-        }
+        } 
 
         /*public Dictionary<int, Client> sortingClientByOrders ()
         {
