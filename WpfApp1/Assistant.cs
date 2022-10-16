@@ -3,7 +3,7 @@ using System;
 namespace WpfApp1
 {
     public class Assistant : Employee{
-         public Assistant (string Name, string type, Restaurant resto)
+         public Assistant (string Name, EmployeeType type, Restaurant resto)
          {
             this.resto = resto;
             this.EmployeeID = Globals.indexEmployee;
@@ -19,7 +19,7 @@ namespace WpfApp1
             
         }
 
-        public void createEmployee (string Name, string type)
+        public void createEmployee (string Name, EmployeeType type)
         {
             resto.getListEmployees().Add( new Employee(Name, type, this.resto) );
         }
@@ -34,8 +34,8 @@ namespace WpfApp1
 
             // sending all the confirmations
             clientConfirmation(c.clientId, "Order " +order.orderId+ " in "+ order.orderState);
-            kitchenConfirmation("");
-            //deliveryConfirmation(order.deliveryId, c.printAddress()); // adding 5min delay // refer to commentary Order line
+            kitchenConfirmation(order.listProducts);
+            //deliveryConfirmation(order); // adding 5min delay // refer to commentary Order line
             assistantConfirmation(this.EmployeeID, "Order " +order.orderId+ " in preparation");
 
             return order;
@@ -50,20 +50,42 @@ namespace WpfApp1
         }
 
         public void endOrder(int orderId, int deliveryManId){
-            resto.getOrderByID(orderId).orderState = OrderState.finished;
-            //resto.getEmployeesByID(deliveryManId).GetType(); // specification design pattern
+
+            Order o = resto.getOrderByID(orderId);
+            o.orderState = OrderState.finished;
+            Employee e = resto.getEmployeesByID(deliveryManId);
+            if (e.type == EmployeeType.delivery)
+            {
+
+                ((DeliveryMan)e).sendConfirmation(o);
+            }
+            else
+            {
+                print("error " + o.deliveryId + " is not an deliveryman");
+            }
         }
 
         public void clientConfirmation (int clientId, string message) {
             resto.getClientByID(clientId).print(message);
         }
 
-        public void kitchenConfirmation (string message) {
-            // printing message argument in the GUI
+        public void kitchenConfirmation (List<Product> products) {
+            foreach (Product p in products)
+            {
+                print("\n" + p.name);
+            }
         }
 
-        public void deliveryConfirmation (int employeId, string message) {
-            resto.getEmployeesByID(employeId).print(message);
+        public void deliveryConfirmation (Order order) {
+            Employee e = resto.getEmployeesByID(order.deliveryId);
+            if (e.type == EmployeeType.delivery)
+            {
+                ((DeliveryMan)e).sendConfirmation(order);
+            }
+            else
+            {
+                print("error " + order.deliveryId + " is not an deliveryman");
+            }
         }
 
         public void assistantConfirmation (int employeeId, string message) {
@@ -72,5 +94,3 @@ namespace WpfApp1
 
     }
 }
-
-*/
