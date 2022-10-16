@@ -1,5 +1,4 @@
 ﻿using System;
-using ConsoleApp1;
 
 namespace WpfApp1
 {
