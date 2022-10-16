@@ -13,6 +13,16 @@ namespace WpfApp1
             this.type = type;
          }
 
+        // verifying in the restaurant db ( getClientByPhone ) is the client ( client_phone ) exists
+        public Boolean isClient (int client_phone)
+        {
+            if (resto.getClientByPhone (client_phone) != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public void createClient(int client_phone, int order_number, string first_name, string last_name, int number, string streetname, string city)
         {
             Address address = new Address(number, streetname, city);
