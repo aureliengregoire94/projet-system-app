@@ -42,7 +42,7 @@ namespace WpfApp1
         private void validation_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("" + restau.getListOrders().FirstOrDefault().listProducts.FirstOrDefault().price);
-
+            restau.preparationOrder(orders);
         }
 
         private void validateFood_Click(object sender, RoutedEventArgs e)

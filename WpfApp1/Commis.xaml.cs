@@ -51,10 +51,9 @@ namespace WpfApp1
         {
             if (e.Key == Key.Enter)
             {
-                if (commis.isClient(int.Parse(Phone.Text)))
-                {
-                    Application.Current.Properties[Phone.Text] = commis.takeOrder(int.Parse(ID.Text));
-                    com_frame.NavigationService.Navigate(new Uri("create_order.xaml", UriKind.Relative));
+                if (commis.isOrder(int.Parse(ID.Text)))
+                {                   
+                    com_frame.NavigationService.Navigate(new Uri("Order_gestion.xaml", UriKind.Relative));
                 }
                 else
                 {

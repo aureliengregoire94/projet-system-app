@@ -224,7 +224,7 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
         {
             foreach (Product p in o.listProducts)
             {
-                Thread.Sleep(5000);
+                System.Threading.Thread.Sleep(5000);
             }
             o.orderState = OrderState.delivering;
         }

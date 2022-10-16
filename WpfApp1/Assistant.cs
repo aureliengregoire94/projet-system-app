@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
+
 
 namespace WpfApp1
 {
@@ -95,7 +97,7 @@ namespace WpfApp1
         public void endOrder(int orderId, int deliveryManId)
         {
 
-            Order o = resto.getOrderByID(orderId);
+            Order o = resto.getOrderById(orderId);
             o.orderState = OrderState.finished;
             Employee e = resto.getEmployeesByID(deliveryManId);
             if (e.type == EmployeeType.delivery)
