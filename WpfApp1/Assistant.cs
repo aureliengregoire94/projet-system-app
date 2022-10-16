@@ -14,10 +14,20 @@ namespace WpfApp1
             this.type = type;
          }
 
-        public void createClient(int client_phone, int order_number, string first_name, string last_name, int number, string streetname, string city)
+        // verifying in the restaurant db ( getClientByPhone ) is the client ( client_phone ) exists
+        public Boolean isClient (int client_phone)
+        {
+            if (resto.getClientByPhone (client_phone) != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public void createClient(int client_phone, string first_name, string last_name, int number, string streetname, string city)
         {
             Address address = new Address(number, streetname, city);
-            resto.getListClients().Add(new Client (client_phone, order_number, first_name, last_name, address));
+            resto.getListClients().Add(new Client (client_phone, first_name, last_name, address));
             
         }
 
