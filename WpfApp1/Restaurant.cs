@@ -17,10 +17,11 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
         public List<Product> listAllProducts = new List<Product>();
         public List<Order> listOrders = new List<Order>();
 
-        public Restaurant () {
-            
+        public Restaurant()
+        {
+            //listEmployees.Add(new DeliveryMan("default delivery", EmployeeType.delivery, this));
         }
-        public Pizza AddPizza (PizzaType type, PizzaGarnishment garni, PizzaSize size)
+        public Pizza AddPizza(PizzaType type, PizzaGarnishment garni, PizzaSize size)
         {
             float price = 0;
             string name = "";
@@ -47,15 +48,15 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
             switch (size)
             {
                 case PizzaSize.small:
-                    price *=1;
+                    price *= 1;
                     name += " small ";
                     break;
                 case PizzaSize.medium:
-                    price *=(float)1.2;
+                    price *= (float)1.2;
                     name += " medium ";
                     break;
                 case PizzaSize.big:
-                    price *=(float)1.5;
+                    price *= (float)1.5;
                     name += " big ";
                     break;
                 default:
@@ -85,7 +86,7 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
                     price *= 1;
                     break;
             }
-            return (new Pizza(price, size, garni, name) );
+            return (new Pizza(price, size, garni, name));
         }
         public Drink AddDrink(DrinkType type)
         {
@@ -119,23 +120,28 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
             return (new Drink(volume, price, name));
         }
 
-        public List<Client> getListClients () {
+        public List<Client> getListClients()
+        {
             return this.listClients;
         }
 
-        public List<Employee> getListEmployees() {
+        public List<Employee> getListEmployees()
+        {
             return this.listEmployees;
         }
 
-        public List<Product> getListAllProducts() {
+        public List<Product> getListAllProducts()
+        {
             return this.listAllProducts;
         }
 
-        public List<Order> getListOrders() {
+        public List<Order> getListOrders()
+        {
             return this.listOrders;
         }
 
-        public Employee getEmployeesByID (int id) {
+        public Employee getEmployeesByID(int id)
+        {
             foreach (Employee e in listEmployees)
             {
                 if (e.EmployeeID == id)
@@ -145,19 +151,6 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
             }
             return default;
         }
-
-        public Order getOrderByID (int id)
-        {
-            foreach (Order o in listOrders)
-            {
-                if (o.orderId == id)
-                {
-                    return o;
-                }
-            }
-            return default;
-        }
-
         public Client getClientByID(int id)
         {
             foreach (Client c in listClients)
@@ -175,19 +168,23 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
             return listClients.Find(r => r.Client_phone == tel);
         }
 
-        public List<Client> sortingClientByNameAsc ()
+        public Order getOrderById(int id)
+        {
+            return listOrders.Find(r => r.orderId == id);
+        }
+        public List<Client> sortingClientByNameAsc()
         {
             List<Client> listClientsSorted = listClients;
             listClientsSorted.Sort((x, y) => string.Compare(x.last_name, y.last_name));
             return listClientsSorted;
         }
 
-        public List<Client> sortingClientByCity ()
+        public List<Client> sortingClientByCity()
         {
             List<Client> listClientsSorted = listClients;
             listClientsSorted.Sort((x, y) => string.Compare(x.address.city, y.address.city));
             return listClientsSorted;
-        } 
+        }
 
         /*public Dictionary<int, float> sortingClientByOrders ()
         {
@@ -217,10 +214,19 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
             return (Dictionary<int, float>) clientsXsumSpent.OrderBy(key => key.Value);
         }*/
 
-        public void addOrderWithFile (string path)
+        public void addOrderWithFile(string path)
         {
             string fileContent = File.ReadAllText(path, Encoding.UTF8);
-            
+
+        }
+
+        public void preparationOrder(Order o)
+        {
+            foreach (Product p in o.listProducts)
+            {
+                Thread.Sleep(5000);
+            }
+            o.orderState = OrderState.delivering;
         }
     }
 }

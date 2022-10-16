@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Input;
 
-namespace WpfApp1// Note: actual namespace depends on the project name.
+namespace WpfApp1 // Note: actual namespace depends on the project name.
 {
     public class Order
     {

@@ -1,40 +1,49 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 
 namespace WpfApp1
 {
-    public class Assistant : Employee{
-         public Assistant (string Name, EmployeeType type, Restaurant resto)
-         {
+    public class Assistant : Employee
+    {
+        public Assistant(string Name, EmployeeType type, Restaurant resto)
+        {
             this.resto = resto;
             this.EmployeeID = Globals.indexEmployee;
             Globals.indexEmployee += 1;
             this.Name = Name;
             this.type = type;
-         }
+        }
 
         // verifying in the restaurant db ( getClientByPhone ) is the client ( client_phone ) exists
-        public Boolean isClient (int client_phone)
+        public Boolean isClient(int client_phone)
         {
-            if (resto.getClientByPhone (client_phone) != null)
+            if ( resto.getClientByPhone(client_phone) != null )
+            {
+                return true;
+            }
+            return false;
+        }
+        public Boolean isOrder(int orderId)
+        {
+            if (resto.getOrderById(orderId) != null)
             {
                 return true;
             }
             return false;
         }
 
+
         public void createClient(int client_phone, string first_name, string last_name, int number, string streetname, string city)
         {
             Address address = new Address(number, streetname, city);
-            resto.getListClients().Add(new Client (client_phone, first_name, last_name, address));
-            
+            resto.getListClients().Add(new Client(client_phone, first_name, last_name, address));
+
         }
 
-        public void createEmployee (string Name, EmployeeType type)
+        public void createEmployee(string Name, EmployeeType type)
         {
-            resto.getListEmployees().Add( new Employee(Name, type, this.resto) );
+            resto.getListEmployees().Add(new Employee(Name, type, this.resto));
         }
 
         public Order takeOrder(int clientPhoneNumber)
@@ -45,7 +54,7 @@ namespace WpfApp1
             Employee deliveryMan = new Employee();
             var random = new Random();
             Boolean found = false;
-            while (!found)
+            while(!found)
             {
                 Employee temp = resto.getListEmployees().ElementAt(random.Next(resto.listEmployees.Count));
                 if (temp.type == EmployeeType.delivery)
@@ -63,7 +72,7 @@ namespace WpfApp1
             return order;
         }
 
-        public void completingOrder(Order order)
+        public void completingOrder (Order order)
         {
             // sending all the confirmations
             Console.Write("\n client " + order.clientId + " order " + order.orderId + " in " + order.orderState);
@@ -73,15 +82,18 @@ namespace WpfApp1
             //assistantConfirmation(this.EmployeeID, "Order " + order.orderId + " in preparation");
         }
 
-        public void changeOrderState(Order order, OrderState orderState){
+        public void changeOrderState(Order order, OrderState orderState)
+        {
             order.orderState = orderState;
         }
 
-        public void checkOrder(Order order){
-            Console.Write(""+order.orderState+"");
+        public void checkOrder(Order order)
+        {
+            Console.Write("" + order.orderState + "");
         }
 
-        public void endOrder(int orderId, int deliveryManId){
+        public void endOrder(int orderId, int deliveryManId)
+        {
 
             Order o = resto.getOrderByID(orderId);
             o.orderState = OrderState.finished;
@@ -97,22 +109,25 @@ namespace WpfApp1
             }
         }
 
-        public void clientConfirmation (int clientId, string message) {
+        public void clientConfirmation(int clientId, string message)
+        {
             resto.getClientByID(clientId).print(message);
         }
 
-        public void kitchenConfirmation (List<Product> products) {
+        public void kitchenConfirmation(List<Product> products)
+        {
             foreach (Product p in products)
             {
                 print("\n" + p.name);
             }
         }
 
-        public void deliveryConfirmation (Order order) {
+        public void deliveryConfirmation(Order order)
+        {
             Employee e = resto.getEmployeesByID(order.deliveryId);
             if (e.type == EmployeeType.delivery)
             {
-                ((DeliveryMan)e).sendConfirmation(order);
+                ((DeliveryMan) e).sendConfirmation(order);
             }
             else
             {
@@ -120,10 +135,11 @@ namespace WpfApp1
             }
         }
 
-        public void assistantConfirmation (int employeeId, string message) {
+        public void assistantConfirmation(int employeeId, string message)
+        {
             resto.getEmployeesByID(employeeId).print(message);
         }
-        public void addPizzaToOrder (PizzaType type, PizzaGarnishment garni, PizzaSize size, Order order)
+        public void addPizzaToOrder(PizzaType type, PizzaGarnishment garni, PizzaSize size, Order order)
         {
             order.listProducts.Add(resto.AddPizza(type, garni, size));
         }
