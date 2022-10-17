@@ -52,13 +52,13 @@ namespace WpfApp1
 
         private void Return_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate("Commis.xaml");
+            this.NavigationService.Navigate(null);
         }
 
         private void orders_Click(object sender, RoutedEventArgs e)
         {
             List<Order> ListOrder = restau.getListOrders();
-            String affichage = "{ Order ID, Client ID, Delivery ID, Assistant ID, Prix total }";
+            String affichage = "{ Order ID, Client ID, Delivery ID, Assistant ID, Prix total } \n";
             foreach (Order order in ListOrder)
             {
                 affichage += "{ " + order.orderId + ", " + order.clientId + ", " + order.deliveryId + ", " + order.assistantId + ", " + order.calculPrice() + "$ } \n";

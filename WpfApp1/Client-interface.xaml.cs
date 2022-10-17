@@ -20,6 +20,7 @@ namespace WpfApp1
     /// </summary>
     public partial class Client_interface : Page
     {
+        Restaurant restau = (Restaurant)Application.Current.Properties["Restau"];
         public Client_interface()
         {
             InitializeComponent();
@@ -30,7 +31,28 @@ namespace WpfApp1
             if(e.Key == Key.Enter)
             {
                 TextBox txt = (TextBox)sender;
-                MessageBox.Show(txt.Text);
+                if(txt.Text != null)
+                {
+                    List<Order> ur_orders = restau.getAllOrdersFromClient(int.Parse(txt.Text));
+                    if(ur_orders != null && ur_orders.Any())
+                    {
+                        string affichage = "";
+                        foreach (Order order in ur_orders)
+                        {
+                            affichage += "{ " + order.orderId + ", " + order.clientId + ", " + order.deliveryId + ", " + order.assistantId + ", " + order.calculPrice() + "$ } \n";
+
+                        }
+                        MessageBox.Show(affichage);
+                    }
+                    else
+                    {
+                        MessageBox.Show("no order to ur name");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("enter valid input");
+                }
             }
         }
 
