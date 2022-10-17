@@ -52,7 +52,8 @@ namespace WpfApp1
             if (e.Key == Key.Enter)
             {
                 if (commis.isOrder(int.Parse(ID.Text)))
-                {                   
+                {
+                    Application.Current.Properties["Order_toset"] = ID.Text;
                     com_frame.NavigationService.Navigate(new Uri("Order_gestion.xaml", UriKind.Relative));
                 }
                 else
