@@ -9,8 +9,11 @@
       Title="visualisation">
 
     <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
-        <Button x:Name="clients_by_abc" Width="180" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" Click="abc_Click">Consult the clients / ABC</Button>
-        <Button x:Name="clients_by_town" Width="180" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,80,0,0" Click="clients_by_town_Click">Consult the clients / ABC</Button>
+        <Button x:Name="clients_by_abc" Width="180" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" Click="abc_Click">Consult the clients / family name</Button>
+        <Button x:Name="clients_by_town" Width="180" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,80,0,0" Click="clients_by_town_Click">Consult the clients / town</Button>
+
+        <Button x:Name="orders" Width="150" Height="28" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,80" Click="orders_Click">Consult the current orders</Button>
+        
         <Button x:Name="Backreturn" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Return_Click">Return</Button>
     </Grid>
 </Page>

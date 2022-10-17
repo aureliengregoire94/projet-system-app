@@ -84,7 +84,7 @@ namespace WpfApp1
 
         private void Return_Click(object sender, RoutedEventArgs e)
         {
-            employee_fr.NavigationService.Navigate(new Uri("commis.xaml", UriKind.Relative));
+            this.NavigationService.Navigate(null);
         }
     }
     

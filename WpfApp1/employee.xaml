@@ -29,8 +29,6 @@
 
         <Button HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="1.533,0.805" Margin="0,65,0,20" Click="addclient_Click">Create client</Button>
 
-        <Frame x:Name="employee_fr"/>
-
-        <Button x:Name="Backreturn" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Return_Click">Return</Button>
+        <Button x:Name="Backreturn" HorizontalAlignment="Left" VerticalAlignment="Center" Click="Return_Click">Return</Button>
     </Grid>
 </Page>

@@ -9,12 +9,12 @@
       Title="order_gestion">
 
     <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
-        <ComboBox x:Name="Status" Text = "Pizza Sizes" IsEditable = "true" IsReadOnly = "true"  Width="150" Height="28" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="160,0,0,0">
+        <ComboBox x:Name="Status" Text = "Status" IsEditable = "true" IsReadOnly = "true"  Width="150" Height="28" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="160,0,0,0">
             <ComboBoxItem Content="preparation"></ComboBoxItem>
             <ComboBoxItem Content="delivering"></ComboBoxItem>
             <ComboBoxItem Content="finished"></ComboBoxItem>
             <ComboBoxItem Content="canceled"></ComboBoxItem>
         </ComboBox>
-        <Button Width="80" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center">Validate</Button>
+        <Button x:Name="validation" Width="80" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" Click="validation_Click">Validate</Button>
     </Grid>
 </Page>
