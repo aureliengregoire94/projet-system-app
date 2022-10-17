@@ -58,10 +58,10 @@ namespace WpfApp1
         private void orders_Click(object sender, RoutedEventArgs e)
         {
             List<Order> ListOrder = restau.getListOrders();
-            String affichage = "{ Order ID, Client ID, Delivery ID, Assistant ID, Prix total } \n";
+            String affichage = "{ Order ID, Client ID, Delivery ID, Assistant ID, Order state, Prix total } \n";
             foreach (Order order in ListOrder)
             {
-                affichage += "{ " + order.orderId + ", " + order.clientId + ", " + order.deliveryId + ", " + order.assistantId + ", " + order.calculPrice() + "$ } \n";
+                affichage += "{ " + order.orderId + ", " + order.clientId + ", " + order.deliveryId + ", " + order.assistantId + ", "+ order.orderState+ ", "+ order.calculPrice() + "$ } \n";
 
             }
             MessageBox.Show(affichage);

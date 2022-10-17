@@ -9,7 +9,7 @@
       Title="create_order">
 
 
-    <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+    <Grid OpacityMask="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
         <ComboBox x:Name="pizza_types" Text = "Pizza flavours" IsEditable = "true" IsReadOnly = "true"  Width="150" Height="28" HorizontalAlignment="Left" VerticalAlignment="Center">
             <ComboBoxItem Content="margarita"></ComboBoxItem>
             <ComboBoxItem Content="napolitana"></ComboBoxItem>
@@ -42,6 +42,6 @@
         <Button x:Name="validation" Width="130" Height="27" HorizontalAlignment="Left" VerticalAlignment="Center" MaxWidth="130" MaxHeight="27" Margin="0,350,0,0" Click="validation_Click">Click to validate order</Button>
 
         <Button x:Name="Backreturn" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Return_Click">Return</Button>
-
+        
     </Grid>
 </Page>

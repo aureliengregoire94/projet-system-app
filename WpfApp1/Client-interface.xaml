@@ -8,13 +8,11 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Client_interface">
 
-    <Grid>
-        <Grid.Background>
-            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
-        </Grid.Background>
+    <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+        
         <TextBlock Margin="321,88,321,339">Enter your order number</TextBlock>
         <TextBox Margin="256,141,256,284" KeyDown="TextBox_Keydown" MaxWidth="170" MaxHeight="20"></TextBox>
         <Button x:Name="Backreturn" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Return_Click">Return</Button>
-        <Frame x:Name="Clientframe"/>
+        <Frame x:Name="Clientframe" Navigated="Clientframe_Navigated"/>
     </Grid>
 </Page>

@@ -53,7 +53,7 @@ namespace WpfApp1
 
             commis.changeOrderState(ord, ord_s);
 
-            this.NavigationService.Navigate("Commis.xaml");
+            this.NavigationService.Navigate(null);
         }
     }
 }

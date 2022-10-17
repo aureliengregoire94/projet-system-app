@@ -7,6 +7,7 @@ using System.Text;
 using System.Linq.Expressions;
 using System.Diagnostics;
 using System.Drawing;
+using System.Threading.Tasks;
 
 namespace WpfApp1 // Note: actual namespace depends on the project name.
 {
@@ -188,15 +189,15 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
         public List<Order> getAllOrdersFromClient(int telClient)
         {
             Client c = getClientByPhone(telClient);
-            List<Order> listOrders = new List<Order>();
-            foreach (Order o in listOrders)
+            List<Order> listOrdersClient = new List<Order>();
+            foreach (Order o in getListOrders())
             {
                 if (o.clientId == c.clientId)
                 {
-                    listOrders.Add(o);
+                    listOrdersClient.Add(o);
                 }
             }
-            return listOrders;
+            return listOrdersClient;
         }
 
         /*public Dictionary<int, float> sortingClientByOrders ()
@@ -233,11 +234,11 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
 
         }
 
-        public void preparationOrder(Order o)
+        public async void preparationOrder(Order o)
         {
             foreach (Product p in o.listProducts)
             {
-                System.Threading.Thread.Sleep(5000);
+                await Task.Delay(TimeSpan.FromSeconds(5));
             }
             o.orderState = OrderState.delivering;
         }

@@ -36,7 +36,7 @@ namespace WpfApp1
                     List<Order> ur_orders = restau.getAllOrdersFromClient(int.Parse(txt.Text));
                     if(ur_orders != null && ur_orders.Any())
                     {
-                        string affichage = "";
+                        string affichage = "{ Order ID, Client ID, Delivery ID, Assistant ID, Prix total } \n";
                         foreach (Order order in ur_orders)
                         {
                             affichage += "{ " + order.orderId + ", " + order.clientId + ", " + order.deliveryId + ", " + order.assistantId + ", " + order.calculPrice() + "$ } \n";
@@ -59,6 +59,11 @@ namespace WpfApp1
         private void Return_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(null);
+        }
+
+        private void Clientframe_Navigated(object sender, NavigationEventArgs e)
+        {
+
         }
     }
 }

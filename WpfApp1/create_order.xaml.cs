@@ -41,7 +41,7 @@ namespace WpfApp1
 
         private void validation_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("" + restau.getListOrders().FirstOrDefault().listProducts.FirstOrDefault().price);
+            MessageBox.Show(orders.calculPrice() + "$");
             restau.preparationOrder(orders);
         }
 

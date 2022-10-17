@@ -16,5 +16,6 @@
             <ComboBoxItem Content="canceled"></ComboBoxItem>
         </ComboBox>
         <Button x:Name="validation" Width="80" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" Click="validation_Click">Validate</Button>
+        
     </Grid>
 </Page>

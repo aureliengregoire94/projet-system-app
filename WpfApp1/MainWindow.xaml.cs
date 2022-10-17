@@ -47,47 +47,12 @@ namespace WpfApp1
                 MessageBox.Show("welcome");
                 mainFrame.NavigationService.Navigate(new Uri("Client-interface.xaml", UriKind.Relative));
             }
-            else if (Own.IsChecked == true)
-            {
-                MessageBox.Show("Enter the owner code");
-
-                TextBox txt = new TextBox();
-                txt.Name = "owner";
-                Thickness margin = txt.Margin;
-                margin.Left = 280;
-                margin.Top = 300;
-                margin.Bottom = 194;
-                txt.Width = 170;
-                txt.Height = 20;
-
-                txt.KeyDown += new KeyEventHandler(PressEnter);
-
-                interface1.Children.Add(txt);
-
-            }
             else if (Emp.IsChecked == true)
             {
                 MessageBox.Show("Enter the employee Code");
 
                 TextBox txt = new TextBox();
                 txt.Name = "employee";
-                Thickness margin = txt.Margin;
-                margin.Left = 280;
-                margin.Top = 300;
-                margin.Bottom = 194;
-                txt.Width = 170;
-                txt.Height = 20;
-
-                txt.KeyDown += new KeyEventHandler(PressEnter);
-
-                interface1.Children.Add(txt);
-            }
-            else if (Deliv.IsChecked == true)
-            {
-                MessageBox.Show("Enter your id");
-
-                TextBox txt = new TextBox();
-                txt.Name = "delivery";
                 Thickness margin = txt.Margin;
                 margin.Left = 280;
                 margin.Top = 300;
@@ -126,6 +91,11 @@ namespace WpfApp1
                     }
                 }
             }
+        }
+
+        private void mainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+
         }
     }
 }
