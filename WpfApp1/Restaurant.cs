@@ -185,6 +185,19 @@ namespace WpfApp1 // Note: actual namespace depends on the project name.
             listClientsSorted.Sort((x, y) => string.Compare(x.address.city, y.address.city));
             return listClientsSorted;
         }
+        public List<Order> getAllOrdersFromClient(int telClient)
+        {
+            Client c = getClientByPhone(telClient);
+            List<Order> listOrders = new List<Order>();
+            foreach (Order o in listOrders)
+            {
+                if (o.clientId == c.clientId)
+                {
+                    listOrders.Add(o);
+                }
+            }
+            return listOrders;
+        }
 
         /*public Dictionary<int, float> sortingClientByOrders ()
         {
